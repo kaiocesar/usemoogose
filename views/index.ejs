@@ -1,11 +1,36 @@
+<%- contentFor('content') %>
+
+<br/>
+<br/>
 
 
-<h1>Produtos Cadastrados</h1>
+<div class="row">
 
-<% if(produtos.length) { %>
-	<ul>
+	<% if(produtos.length) { %>
+
 		<% produtos.forEach(function(produto){%>
-		<li><%= produto.name %> - R$ <%= produto.price %></li>
-		<% }) %>
-	</ul>
-<% } %>
+	    <div class="col-sm-4 col-lg-4 col-md-4">
+	        <div class="thumbnail">
+	            <img src="http://placehold.it/320x150" alt="">
+	            <div class="caption">
+	                <h4 class="pull-right">R$ <%= produto.price %></h4>
+	                <h4><a href="#"><%= produto.name %></a></h4>
+	                <p><%= produto.description %></p>
+	            </div>
+	            <div class="ratings">
+	                <p class="pull-right">15 reviews</p>
+	                <p>
+	                    <span class="glyphicon glyphicon-star"></span>
+	                    <span class="glyphicon glyphicon-star"></span>
+	                    <span class="glyphicon glyphicon-star"></span>
+	                    <span class="glyphicon glyphicon-star"></span>
+	                    <span class="glyphicon glyphicon-star"></span>
+	                </p>
+	            </div>
+	        </div>
+	    </div>
+	    <% }) %>
+
+	<% } %>
+
+</div>

@@ -1,9 +1,11 @@
 var express = require('express')
+	, expressLayout = require('express-ejs-layouts')
 	, path = require('path')
 	, http = require('http')
 	, mongoose = require('mongoose')
 
 var app = express();
+
 
 
 mongoose.connect('mongodb://localhost/lojavirtual');
@@ -27,6 +29,11 @@ app.use(express.static(path.join(__dirname + "/public")));
 
 app.set('views', __dirname + "/views");
 app.set('view engine', 'ejs');
+app.set('layout', 'default');
+
+
+app.use(expressLayout);
+// app.use(express.urlencoded);
 
 
 
