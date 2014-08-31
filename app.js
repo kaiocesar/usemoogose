@@ -18,6 +18,7 @@ var ProdutosSchema = new Schema({
   , price : Number
   , description: String
   , status : Boolean
+  , ref : Number
 });
 
 
@@ -50,6 +51,24 @@ app.get('/', function(req, res){
 
 	//res.render('index');
 });
+
+
+app.get('/product/:id', function(req, res){
+
+	return ProdutosModel.find({ref: req.param('id')}, function(err, produto) {
+		if (! err) {
+			res.render('details', {produtos: produto, layout: "layout-detail"});
+		} else {
+			return console.log(err);
+		}
+	});
+
+});
+
+app.get('/search', function(req, res){
+	res.render('search', {search: req.param('s')});
+});
+
 
 
 app.listen(app.get('port'), function() {
