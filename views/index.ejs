@@ -1,0 +1,11 @@
+
+
+<h1>Produtos Cadastrados</h1>
+
+<% if(produtos.length) { %>
+	<ul>
+		<% produtos.forEach(function(produto){%>
+		<li><%= produto.name %> - R$ <%= produto.price %></li>
+		<% }) %>
+	</ul>
+<% } %>
